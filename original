@@ -1,0 +1,152 @@
+
+### Functions ###
+def s_monday(times):
+    print("Choose a time:")
+    for key in times:               # Print available time slots
+        if times[key] == None:
+            print(key)
+    print("")
+    time = input()                  # User inputs desired time slot
+    for key in times:               # Checks whether time is available & prompts user to input name(s)
+        if time == key:
+            if times[key] != None:
+                time = input("That time slot is already taken. Please choose a different time.\n")
+            else:
+                print("Please enter name(s):")
+                times[key] = input()
+    return times
+    
+def s_tuesday(times):
+    print("Choose a time:")
+    for key in times:
+        if times[key] == None:
+            print(key)
+    print("")
+    time = input()
+    for key in times:
+        if time == key:
+            if times[key] != None:
+                time = input("That time slot is already taken. Please choose a different time.\n")
+            else:
+                print("Please enter name(s):")
+                times[key] = input()
+    return times
+
+def s_wednesday(times):
+    print("Choose a time:")
+    for key in times:
+        if times[key] == None:
+            print(key)
+    print("")
+    time = input()
+    for key in times:
+        if time == key:
+            if times[key] != None:
+                time = input("That time slot is already taken. Please choose a different time.\n")
+            else:
+                print("Please enter name(s):")
+                times[key] = input()
+    return times
+
+def s_thursday(times):
+    print("Choose a time:")
+    for key in times:
+        if times[key] == None:
+            print(key)
+    print("")
+    time = input()
+    for key in times:
+        if time == key:
+            if times[key] != None:
+                time = input("That time slot is already taken. Please choose a different time.\n")
+            else:
+                print("Please enter name(s):")
+                times[key] = input()
+    return times
+
+### Lists, dictionaries & variables ###
+weekdays = ["1. Monday", "2. Tuesday", "3. Wednesday", "4. Thursday"]
+monday_times = {
+    "2:00":None,
+    "2:30":None,
+    "3:00":None,
+    "3:30":None,
+    "4:00":None,
+    "4:30":None
+}
+tuesday_times = {
+    "2:00":None,
+    "2:30":None,
+    "3:00":None,
+    "3:30":None,
+    "4:00":None,
+    "4:30":None
+}
+wednesday_times = {
+    "2:00":None,
+    "2:30":None,
+    "3:00":None,
+    "3:30":None,
+    "4:00":None,
+    "4:30":None
+}
+thursday_times = {
+    "2:00":None,
+    "2:30":None,
+    "3:00":None,
+    "3:30":None,
+    "4:00":None,
+    "4:30":None
+}
+user_command = None
+
+dash = '-' * 48
+
+### Main program ###
+print(dash)
+print("*** WELCOME TO THE GOLF TEE TIME SCHEDULER ***")
+print(dash)
+
+while user_command != "x":
+    user_command = input("What would you like to do?\n(s) Schecule a Tee Time \n(v) View Booked Time Slots \n(x) Exit \n\nSelection:  ")
+    if user_command == "x":         # Quits program if user inputs "x"
+        break
+    elif user_command == "s":       # Prompts user to choose day of week
+        print("Select the number for the corresponding day:")
+        for days in weekdays:
+            print(days)
+        print("")
+        s_input = input()
+        if s_input == "1":
+            monday_times = s_monday(monday_times)   # Runs time selection function and returns update to relevant dictionary
+            print("")
+        if s_input == "2":
+            tuesday_times = s_tuesday(tuesday_times)
+            print("")
+        if s_input == "3":
+            wednesday_times = s_wednesday(wednesday_times)
+            print("")
+        if s_input == "4":
+            thursday_times = s_thursday(thursday_times)
+            print("")
+    elif user_command == "v":       # Displays admin interface
+        print("Monday")
+        for a in monday_times:
+            if monday_times[a] != None:
+                print(a, monday_times[a])
+        print("")
+        print("Tuesday")
+        for b in tuesday_times:
+            if tuesday_times[b] != None:
+                print(b, tuesday_times[b])
+        print("")
+        print("Wednesday")
+        for c in wednesday_times:
+            if wednesday_times[c] != None:
+                print(c, wednesday_times[c])
+        print("")
+        print("Thursday")
+        for d in thursday_times:
+            if thursday_times[d] != None:
+                print(d, thursday_times[d])
+print("\nThank you for using the Golf Tee Time Scheduler. Have a nice day!")
